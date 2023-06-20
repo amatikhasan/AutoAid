@@ -1,6 +1,6 @@
 # AutoAid
 
-This project will focus on identifying the most common causes of breakdowns, developing a plan for responding to breakdowns quickly, and creating a system that can connect drivers with nearby assistance.
+This project focuses on identifying the most common causes of breakdowns, developing a plan for responding to breakdowns quickly, and creating a system that can connect drivers with nearby assistance.
 
 # Technologies used in the project
 >Spring Boot,
@@ -14,7 +14,7 @@ This project will focus on identifying the most common causes of breakdowns, dev
 >Git
 
 # Run Instruction:
-Final test was done in a macbook. To successfully run the project, you need to run the services in the following sequence:
+Final test was done in a macbook. To successfully run the project, Please run the services in the following sequence:
 1. ConfigService
 2. DiscoveryService
 3. User Service
