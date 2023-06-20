@@ -22,7 +22,7 @@ Final test was done in a macbook. To successfully run the project, Please run th
 5. Aid Service
 6. Payment Service
    
-*Generate a demo breakdown at first from the nav bar*
+*Please Generate a demo breakdown at first from the nav bar to test the project*
 
 # Implementations:
 1. Breakdown Service by *Atik Hasan*
