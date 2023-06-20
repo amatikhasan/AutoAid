@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Aid Details</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<!-- Include the navigation bar -->
+<div th:replace="fragments/navbar.html :: navbar"></div>
+
+<div class="mt-5">
+  <h1 class="text-center my-4">Aid Requests</h1>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Car Model</th>
+      <th>Error Code</th>
+      <th>Car Owner</th>
+      <th>Aid Provider</th>
+      <th>Status</th>
+      <th>Time</th>
+      <th>Description</th>
+      <th>Payment</th>
+      <th>Update</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="aid : ${aidRequestList}">
+      <td th:text="${aid.carModel}"></td>
+      <td th:text="${aid.errorCode}"></td>
+      <td th:text="${aid.carDriver}"></td>
+      <td>
+        <p class="text-center" th:text="${aid.aidProvider}"></p>
+        <form th:if="${aid.aidProvider==null}" class="text-center" method="POST" th:action="@{/aid/breakdown/update/{id}(id=${aid.getId()})}" th:object="${aid}">
+          <input type="hidden" name="id" th:value="${aid.id}"/>
+          <button type="submit" class="btn btn-success">Accept</button>
+        </form>
+      </td>
+      <td>
+        <p class="text-center" th:text="${aid.status}"></p>
+      </td>
+      <td th:text="${aid.timeStamp}"></td>
+      <td th:text="${aid.description}"></td>
+      <td>
+        <p class="text-center" th:text="${aid.billAmount}"></p>
+        <p class="text-center text-light bg-dark" th:text="${aid.paymentStatus}"></p>
+      </td>
+      <td>
+        <p class="text-center"></p>
+        <form class="text-center" method="get" th:action="@{/aid/payment}" th:object="${aid}">
+          <input type="hidden" name="id" th:value="${aid.id}"/>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
