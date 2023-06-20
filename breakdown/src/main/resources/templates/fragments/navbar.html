@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="navbar">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My App</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .navbar-initials {
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">AutoAid</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/breakdown/details">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/breakdown/details">Breakdown Lists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/breakdown/aid/myrequests">My requests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/breakdown/create">Generate a demo Breakdown</a>
+      </li>
+      <li class="nav-item float-right">
+        <a class="nav-link" href="/breakdown/logout">Logout</a>
+      </li>
+    </ul>
+    <!--<div class="navbar-initials">
+      &lt;!&ndash; Assuming you have the first and last name stored in variables firstName and lastName &ndash;&gt;
+      <span>
+        &lt;!&ndash; Use the first letter of the first name &ndash;&gt;
+        <span th:text="${user != null ? user.getName.substring(0,1) : ''}"></span>
+        &lt;!&ndash; Use the first letter of the last name &ndash;&gt;
+      </span>
+    </div>-->
+  </div>
+</nav>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</div>
+</html>

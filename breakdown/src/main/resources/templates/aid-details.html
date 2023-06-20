@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Aid Details</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<!-- Include the navigation bar -->
+<div class="modal" id="success-dialog" tabindex="-1" role="dialog" aria-labelledby="success-dialog-label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="success-dialog-label">Success!</h5>
+      </div>
+      <div class="modal-body">
+        Your insurance provider is being notified about this issue!
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:replace="fragments/navbar.html :: navbar"></div>
+
+<div class="mt-5">
+  <h1 class="text-center my-4">Aid Requests</h1>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th>Car Model</th>
+      <th>Error Code</th>
+      <th>Car Owner</th>
+      <th>Aid Provider</th>
+      <th>Status</th>
+      <th>Time</th>
+      <th>Description</th>
+      <th>Payment</th>
+      <th>Notify Insurance?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="aid : ${aidRequests}">
+      <td th:text="${aid.carModel}"></td>
+      <td th:text="${aid.errorCode}"></td>
+      <td th:text="${aid.carDriver}"></td>
+      <td th:text="${aid.aidProvider}"></td>
+      <td th:text="${aid.status}"></td>
+      <td th:text="${aid.timeStamp}"></td>
+      <td th:text="${aid.description}"></td>
+      <td>
+        <p class="text-center" th:text="${aid.billAmount}"></p>
+        <p class="text-center text-light bg-dark" th:text="${aid.paymentStatus}"></p>
+      </td>
+      <td>
+        <p class="text-center"></p>
+        <form id="request-form" class="text-center" method="get" th:action="@{#}" th:object="${aid}">
+          <input type="hidden" name="id" th:value="${aid.id}"/>
+          <button type="submit" class="btn btn-primary">Notify Insurance</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script th:inline="javascript">
+  /* Assuming you are using jQuery */
+  $(document).ready(function () {
+    $('#request-form').submit(function (event) {
+        event.preventDefault();
+      // Perform AJAX request or any other required processing
+
+      // Show the success dialog
+      $('#success-dialog').modal('show');
+
+      // Hide the success dialog after 3 seconds
+      setTimeout(function () {
+        $('#success-dialog').modal('hide');
+      }, 3000);
+    });
+  });
+</script>
+
+</body>
+</html>
