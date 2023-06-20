@@ -57,3 +57,13 @@ In this project, there are overall 6 services including 2 configService and disc
    
 11. Payment Service: This service is used to update the payment, payment status and car breakdown status of a request. This service 
     interacts with Aid Service using Feign Client and updates the respective AidRequest.
+
+# Bounded Context Map:
+![329431783_181005161501636_5611446769949464891_n](https://github.com/amatikhasan/AutoAid/assets/36268088/ebaaeebb-7066-45d0-bb2a-e660d9837043)
+
+# Entities:
+![341759663_708778384334221_7084865613316558244_n](https://github.com/amatikhasan/AutoAid/assets/36268088/4f93a7b8-e682-4cee-b7e5-5d453f388c46)
+
+
+
+
